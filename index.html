@@ -8,7 +8,7 @@
   <title>Numerate Stocks — watchlist & research</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=2">
-  <script src="app.js?v=1" defer></script>
+  <script src="app.js?v=2" defer></script>
 </head>
 <body>
   <header class="topbar"><a class="wordmark" href="./"><span class="mark">N<span>.</span></span><span>NUMERATE <b>MARKETS</b></span></a><div class="market-indicator"><i></i><span id="market-state">MARKET DATA</span><span class="separator">·</span><span id="updated-at">Loading…</span></div></header>
@@ -29,7 +29,7 @@
       <div class="panel-foot"><span><span class="dot-live"></span> <span id="refresh-copy">Refreshes while this page is open</span></span><span>Prices may be delayed</span></div>
     </section>
     <section class="lower-grid"><article class="panel method-panel"><p class="eyebrow">HOW TO READ IT</p><h2>A signal, not a verdict.</h2><div class="signal-guide"><div><span class="signal-pill positive">Buy candidate</span><p>Above the 20- and 50-day averages with positive 20-day momentum; research further.</p></div><div><span class="signal-pill neutral">Review</span><p>Trend measures disagree or history is limited. Review fundamentals, valuation, and your goals.</p></div><div><span class="signal-pill negative">Avoid for now</span><p>Below the 20- and 50-day averages with negative 20-day momentum; reassess later.</p></div></div></article>
-      <article class="panel settings-panel"><p class="eyebrow">DATA SOURCE</p><h2>Connect your quotes</h2><p>Quotes for added symbols use Twelve Data. Use your own API key for broad symbol coverage and higher limits.</p><label for="api-key">Twelve Data API key <span>(optional)</span></label><div class="key-row"><input id="api-key" type="password" autocomplete="off" placeholder="Paste key to enable quotes"><button id="save-key" class="quiet-button">Save</button></div><p class="privacy-note">Saved in this browser only. Never sent to this site. <a href="https://twelvedata.com/pricing" target="_blank" rel="noopener noreferrer">Get an API key ↗</a></p></article></section>
+      <article class="panel settings-panel"><p class="eyebrow">DATA SOURCE</p><h2>Public market data</h2><p>The shared AAPL snapshot comes from Public and refreshes every 20 minutes when its value changes. Public credentials stay on the refresh host. Added symbols use Twelve Data with your own API key.</p><label for="api-key">Twelve Data API key <span>(optional for added symbols)</span></label><div class="key-row"><input id="api-key" type="password" autocomplete="off" placeholder="Paste key to enable added-symbol quotes"><button id="save-key" class="quiet-button">Save</button></div><p class="privacy-note">Saved in this browser only; quote requests go directly to Twelve Data. No Public account, balance, or holdings data is published here. <a href="https://twelvedata.com/pricing" target="_blank" rel="noopener noreferrer">Get an API key ↗</a></p></article></section>
     <footer><span>NUMERATE MARKETS <span class="footer-dot">·</span> PERSONAL RESEARCH TOOL</span><span>Not investment advice. Verify data before making decisions.</span></footer>
   </main>
 </body>

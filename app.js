@@ -1,6 +1,6 @@
 const WATCH_KEY = 'numerate64-stocks-watchlist-v1';
 const API_KEY = 'numerate64-stocks-api-key-v1';
-const DATA_URL = './market-data.json?v=1';
+const DATA_URL = './market-data.json?v=2';
 const REFRESH_MS = 20 * 60 * 1000;
 const WATCH_LIMIT = 20;
 let snapshot = null;
@@ -67,7 +67,7 @@ async function loadSnapshot() {
 async function fetchSymbol(symbol) {
   if (symbol === 'AAPL' && snapshot?.quotes?.AAPL) return snapshot.quotes.AAPL;
   const apiKey = key();
-  if (!apiKey) return {symbol,error:'Add a Twelve Data key below for this symbol.'};
+  if (!apiKey) return {symbol,error:'Add a Twelve Data key below for this symbol. Public snapshot covers AAPL.'};
   const params = new URLSearchParams({symbol,interval:'1day',outputsize:'60',apikey:apiKey});
   const response = await fetch(`https://api.twelvedata.com/time_series?${params}`);
   if (!response.ok) throw new Error(`Quote request failed (${response.status}).`);
@@ -87,7 +87,7 @@ async function update(silent = false) {
   render(quotes);
   const snapUpdated = snapshot?.fetchedAt ? Date.parse(snapshot.fetchedAt) : 0;
   $('updated-at').textContent = snapUpdated ? `Updated ${localTime(snapUpdated)}` : 'Price source ready';
-  $('market-state').textContent = 'MARKET DATA';
+  $('market-state').textContent = snapshot?.source === 'Public.com market data' ? 'PUBLIC MARKET DATA' : 'MARKET DATA';
   $('refresh-copy').textContent = 'Refreshes every 20 minutes while this page is open';
   if (!silent && quotes.some(q=>q.error)) say('Some quotes need your API key or could not be loaded.', true);
   busy = false; $('refresh').disabled = false;
