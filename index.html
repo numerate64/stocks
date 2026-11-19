@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2">
+  <meta name="description" content="A personal stock watchlist with transparent, trend-based research signals.">
+  <title>Numerate Stocks — watchlist & research</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script src="app.js?v=1" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="wordmark" href="./"><span class="mark">N<span>.</span></span><span>NUMERATE <b>MARKETS</b></span></a><div class="market-indicator"><i></i><span id="market-state">MARKET DATA</span><span class="separator">·</span><span id="updated-at">Loading…</span></div></header>
+  <main class="shell">
+    <section class="intro"><div><p class="eyebrow">YOUR RESEARCH DESK <span>—</span> 01</p><h1>Invest with<br><em>clearer signals.</em></h1><p class="lede">A quieter way to keep an eye on the names that matter to you.</p></div><aside class="disclosure"><span class="disclosure-icon">i</span><p>Research signals are a starting point, not a promise. They use price trends only—not company fundamentals or your financial situation.</p></aside></section>
+    <section class="summary-grid" aria-label="Watchlist overview">
+      <article class="summary-card"><span class="label">WATCHLIST</span><strong id="metric-count">—</strong><span class="hint">your saved symbols</span></article>
+      <article class="summary-card"><span class="label">TRENDING UP</span><strong id="metric-up">—</strong><span class="hint">above 20-day average</span></article>
+      <article class="summary-card"><span class="label">ON YOUR RADAR</span><strong id="metric-review">—</strong><span class="hint">needs a closer look</span></article>
+      <article class="summary-card summary-note"><span class="label">DATA CHECK</span><strong id="metric-fresh">—</strong><span class="hint">last successful update</span></article>
+    </section>
+    <section class="panel watch-panel">
+      <div class="panel-heading"><div><p class="eyebrow">PERSONAL LIST</p><h2>Your watchlist</h2></div><button id="refresh" class="quiet-button"><span aria-hidden="true">↻</span> Refresh</button></div>
+      <form id="add-form" class="add-form"><label class="sr-only" for="ticker">Stock ticker symbol</label><div class="input-wrap"><span aria-hidden="true">＋</span><input id="ticker" name="ticker" maxlength="12" autocomplete="off" placeholder="Add a ticker (e.g. MSFT)" required></div><button class="primary-button" type="submit">Add to list <span aria-hidden="true">↗</span></button></form>
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+      <div class="table-scroll"><table><thead><tr><th scope="col">COMPANY / TICKER</th><th scope="col">LAST PRICE</th><th scope="col">1D CHANGE</th><th scope="col">20D TREND</th><th scope="col">RESEARCH SIGNAL</th><th scope="col"><span class="sr-only">Remove</span></th></tr></thead><tbody id="watchlist"></tbody></table></div>
+      <div id="empty" class="empty-state" hidden><span class="empty-mark">N.</span><h3>Your list starts here</h3><p>Add a ticker to begin tracking its price trend.</p></div>
+      <div class="panel-foot"><span><span class="dot-live"></span> <span id="refresh-copy">Refreshes while this page is open</span></span><span>Prices may be delayed</span></div>
+    </section>
+    <section class="lower-grid"><article class="panel method-panel"><p class="eyebrow">HOW TO READ IT</p><h2>A signal, not a verdict.</h2><div class="signal-guide"><div><span class="signal-pill positive">Buy candidate</span><p>Above the 20- and 50-day averages with positive 20-day momentum; research further.</p></div><div><span class="signal-pill neutral">Review</span><p>Trend measures disagree or history is limited. Review fundamentals, valuation, and your goals.</p></div><div><span class="signal-pill negative">Avoid for now</span><p>Below the 20- and 50-day averages with negative 20-day momentum; reassess later.</p></div></div></article>
+      <article class="panel settings-panel"><p class="eyebrow">DATA SOURCE</p><h2>Connect your quotes</h2><p>Quotes for added symbols use Twelve Data. Use your own API key for broad symbol coverage and higher limits.</p><label for="api-key">Twelve Data API key <span>(optional)</span></label><div class="key-row"><input id="api-key" type="password" autocomplete="off" placeholder="Paste key to enable quotes"><button id="save-key" class="quiet-button">Save</button></div><p class="privacy-note">Saved in this browser only. Never sent to this site. <a href="https://twelvedata.com/pricing" target="_blank" rel="noopener noreferrer">Get an API key ↗</a></p></article></section>
+    <footer><span>NUMERATE MARKETS <span class="footer-dot">·</span> PERSONAL RESEARCH TOOL</span><span>Not investment advice. Verify data before making decisions.</span></footer>
+  </main>
+</body>
+</html>

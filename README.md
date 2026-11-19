@@ -10,7 +10,7 @@ Added symbols are fetched from Twelve Data in the visitor's browser. Add a perso
 
 ## Refresh schedule
 
-`.github/workflows/refresh-market-data.yml` runs every 20 minutes, fetches AAPL daily history from Twelve Data's demo endpoint, and updates `market-data.json` only when market values change. GitHub scheduled jobs can start later than their requested time. In an open browser, quotes for added symbols refresh every 20 minutes; a closed browser cannot refresh private local data. The page reads the scheduled AAPL snapshot when opened and shows its source update time.
+An owner-managed host cron runs every 20 minutes, fetches AAPL daily history from Twelve Data's demo endpoint, and writes `market-data.json` to the repository only when market values change. In an open browser, quotes for added symbols refresh every 20 minutes; a closed browser cannot refresh private local data. The page reads the scheduled AAPL snapshot when opened and shows its source update time. The scheduled shared snapshot is AAPL only because each visitor's personal ticker list remains private in their browser.
 
 ## Research signal
 
